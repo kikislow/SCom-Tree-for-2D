@@ -74,10 +74,10 @@ void initTriangle(GLuint& shaderProgram, GLuint& VAO, GLuint& VBO){
     glBindVertexArray(0);
 }
 
-int windowDisplay(){
+void windowDisplay(){
     if(!glfwInit()){
         std::cout << "glfwInit failed!" << std::endl;
-        return -1;
+        return;
     }
 
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
@@ -88,7 +88,7 @@ int windowDisplay(){
     if(!pWindow){
         std::cout << "pWindow failed!" << std::endl;
         glfwTerminate();
-        return -1;
+        return;
     }
 
     glfwSetKeyCallback(pWindow, glfwClose);
@@ -97,7 +97,7 @@ int windowDisplay(){
 
     if(!gladLoadGL()){
         std::cout << "Can'tload GLAD!" << std::endl;
-        return -1;
+        return;
     }
 
     std::cout << "Renderer: " << glGetString(GL_RENDERER) << std::endl;
@@ -113,7 +113,6 @@ int windowDisplay(){
 
         drawTriangle(shaderProgram, VAO);
 
-        glfwSwapBuffers(pWindow);
         glfwSwapBuffers(pWindow);
         glfwPollEvents();
     }
