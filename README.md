@@ -1,7 +1,5 @@
 # SCom-Tree Project
 
-2D дерево с использованием OpenGL и GLFW.
-
 ## Build Instructions
 
 ```bash
